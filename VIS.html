@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vetri IT Systems Clone</title>
+    <style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #ffffff;
+    color: #333;
+}
+
+.navbar-container {
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* subtle shadow */
+    position: sticky; /* Makes the navbar stick to the top */
+    top: 0;
+    z-index: 1000; /* Ensures it stays above other content */
+}
+
+.navbar-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo img {
+    /* Assuming a placeholder image for the logo */
+    width: 150px;
+    height: auto;
+    /* This section needs to be styled to match the image precisely (green text, icon) 
+       For this example, we'll use a simple placeholder image tag in HTML.
+    */
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="150" height="40" viewBox="0 0 150 40"><rect width="150" height="40" fill="#fff"/><text x="10" y="25" font-family="Arial, sans-serif" font-size="18" fill="#4CAF50">Vetri IT Systems</text></svg>');
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Space between links */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 15px 0; /* Padding for the hover/active area */
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+/* Underline Effect on Hover and Active Link */
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%; /* Start in the middle */
+    transform: translateX(-50%);
+    width: 0; /* Initially no width */
+    height: 3px;
+    background-color: #FF0000; /* Red underline color */
+    transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+    width: 100%; /* Full width on hover/active */
+}
+
+.nav-links a.active {
+    color: #333; /* Keep active link color */
+}
+
+/* Enquiry Button Style */
+.enquiry-btn {
+    background-color: #007bff; /* Bright Blue */
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: 600 !important;
+    transition: background-color 0.3s;
+    /* Override underline for button */
+    padding: 8px 20px;
+    margin-left: 15px;
+}
+
+.enquiry-btn::after {
+    content: none !important; /* Remove the underline from the button */
+}
+
+.enquiry-btn:hover {
+    background-color: #0056b3;
+}
+
+
+/* --- Hero Section Styling --- */
+.hero-section {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 60vh; /* Ensure content is vertically spaced */
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 55%;
+}
+
+.hero-image {
+    flex: 1;
+    max-width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    /* Placeholder for the main image */
+    width: 100%;
+    height: auto;
+    max-width: 550px; 
+    content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="550" height="400" viewBox="0 0 550 400"><rect width="550" height="400" fill="#f0f0f0"/><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#888">Placeholder for 3D Illustration</text></svg>');
+}
+
+/* Hero Text */
+.hero-content h1 {
+    font-size: 3.2rem;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.hero-content .highlight {
+    color: #007bff; /* Blue color for 'Technology' */
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+}
+
+.hero-content p strong {
+    color: #007bff; /* Blue color for 'Vetri IT Systems' */
+}
+
+/* Stats Section */
+.stats {
+    display: flex;
+    gap: 40px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+    position: relative;
+}
+
+.stat-item:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 80%;
+    background-color: #ccc;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #333;
+}
+
+.stat-label {
+    color: #666;
+}
+
+/* Get Started Button */
+.primary-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 12px 35px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: background-color 0.3s;
+}
+
+.primary-btn:hover {
+    background-color: #0056b3;
+}
+    </style>
+</head>
+<body>
+
+    <header class="navbar-container">
+        <div class="navbar-content">
+            <div class="logo">
+                <img src="logo-placeholder.png" alt="Vetri IT Systems Pvt Ltd Logo">
+            </div>
+            <nav class="nav-links">
+                <a href="#" class="active">About Us</a>
+                <a href="#">Web Development</a>
+                <a href="#">Software Development</a>
+                <a href="#">Digital Marketing</a>
+                <a href="#" class="enquiry-btn">Enquiry</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="hero-section">
+        <div class="hero-content">
+            <h1><span class="highlight">Technology</span> is best when <br> it brings people together.</h1>
+
+            <p>At **Vetri IT Systems**, we specialize in providing advanced technology solutions tailored to meet the unique needs of every business.</p>
+
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">Projects</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">20+</span>
+                    <span class="stat-label">Clients</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">30+</span>
+                    <span class="stat-label">Technologies</span>
+                </div>
+            </div>
+
+            <a href="#" class="primary-btn">Get Started</a>
+        </div>
+        <div class="hero-image">
+                    </div>
+    </main>
+
+</body>
+</html>
+
+<style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+ 
+        header{
+            position: sticky;
+            background-color: #040837;
+            padding: 10px;
+            
+           
+        }
+ 
+        nav{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            
+           
+        }
+ 
+       .nav-links a{
+        color: white;
+        text-decoration: none;
+       }
+ 
+ 
+       .nav-links{
+        list-style: none;
+        display: flex;
+        gap: 30px;
+        font-size: 18px;
+       }
+ 
+       a{
+        color: white;
+        text-decoration: none;
+       }
+ 
+       .btn{
+        background-color: orange;
+        /* color: black; */
+        padding: 10px;
+        border-radius: 5px;
+       }
+ 
+       .banner{
+        /* background: url(); */
+        background: url(Images/BANNER.png) center; /* UPDATED */
+        background-size: cover; /* NEW */
+        height: 90vh;
+        display: flex;
+        justify-content: center;
+        /* justify-content: center; */
+        align-items: center;
+        text-align: center;
+       }
+       
+       h1,p{
+        color: white;
+       }
+ 
+       /* .btnn{
+        background-color: orange;
+        padding:10px;
+       
+       } */
+ 
+ 
+       .btnn {
+            background-color: orange;
+            padding: 10px 20px;
+            border-radius: 5px; /* NEW */
+            color: black;
+            transition: 0.3s; /* NEW */
+        }
+ 
+        .btnn:hover {
+            background-color: #ffb84d; /* NEW */
+        }
+    
